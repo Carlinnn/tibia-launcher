@@ -4,7 +4,7 @@
     "description": "Onde os monstros são bem passados e o loot é mal passado",
     "github_username": "Carlinnn",
     "github_repository": "tibia-launcher",
-    "client_zip_filename": "tibia-client.zip",
+    "client_zip_filename": "GordonsOT.zip",
     "auto_install_updates": false,
     "enable_auto_update": true,
     "auto_install_launcher_updates": false,
@@ -33,7 +33,7 @@
     "show_changelog": true,
     "backup_before_update": true,
     "version": "1.0",
-    "download_link": "https://github.com/Carlinnn/tibia-launcher/releases/download/1.0/tibia-client.zip",
+    "download_link": "https://github.com/Carlinnn/tibia-launcher/releases/download/1.0/GordonsOT.zip",
     "release_tag": "1.0",
-    "zip_file": "tibia-client.zip"
+    "zip_file": "GordonsOT.zip"
 }
