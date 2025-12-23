@@ -12,12 +12,12 @@ from urllib.parse import urlparse
 
 class GitHubDownloader:
     def __init__(self):
-        self.repo_owner = "Carlinnn"
-        self.repo_name = "tibia-launcher"
+        self.repo_owner = "hecmo94"
+        self.repo_name = "testclient"
         self.api_base_url = "https://api.github.com"
         self.raw_base_url = "https://raw.githubusercontent.com"
         self.config_file_name = "sample_launcher_config"
-        self.config_branch = "refs/heads/main"  # Use refs/heads/main for the branch
+        self.config_branch = "main"  # Default branch for config
         
         # Set up session with headers
         self.session = requests.Session()
@@ -99,6 +99,35 @@ class GitHubDownloader:
             return release_data
             
         except requests.exceptions.RequestException as e:
+            # If not found, try common variations (v1.0 vs 1.0, 1.0 vs 1.0.0)
+            variations = []
+            
+            # If it's 1.0.0, try 1.0
+            if tag.count('.') == 2 and tag.endswith('.0'):
+                variations.append(tag[:-2])
+            # If it's 1.0, try 1.0.0
+            elif tag.count('.') == 1:
+                variations.append(tag + ".0")
+            
+            # Try with 'v' prefix
+            if not tag.startswith('v'):
+                v_tag = 'v' + tag
+                variations.append(v_tag)
+                # Also variations of v_tag
+                if v_tag.count('.') == 2 and v_tag.endswith('.0'):
+                    variations.append(v_tag[:-2])
+                elif v_tag.count('.') == 1:
+                    variations.append(v_tag + ".0")
+            
+            for v in variations:
+                try:
+                    url_v = f"{self.api_base_url}/repos/{self.repo_owner}/{self.repo_name}/releases/tags/{v}"
+                    resp_v = self.session.get(url_v, timeout=10)
+                    if resp_v.ok:
+                        return resp_v.json()
+                except:
+                    continue
+                    
             print(f"Error fetching release info for tag '{tag}': {e}")
             return None
         except json.JSONDecodeError as e:
