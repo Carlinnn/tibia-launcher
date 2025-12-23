@@ -1,5 +1,5 @@
 """
-GitHub Downloader Module (packaged)
+GitHub Downloader Module
 
 Handles downloading files from GitHub releases, specifically for the tibia repository.
 """
@@ -12,8 +12,8 @@ from urllib.parse import urlparse
 
 class GitHubDownloader:
     def __init__(self):
-        self.repo_owner = "hecmo94"
-        self.repo_name = "testclient"
+        self.repo_owner = "Carlinnn"
+        self.repo_name = "tibia-launcher"
         self.api_base_url = "https://api.github.com"
         self.raw_base_url = "https://raw.githubusercontent.com"
         self.config_file_name = "sample_launcher_config"
@@ -131,7 +131,7 @@ class GitHubDownloader:
             response = self.session.get(url, timeout=10)
             response.raise_for_status()
             
-            releases_data = self.session.get(url, timeout=10).json()
+            releases_data = response.json()
             return releases_data
             
         except requests.exceptions.RequestException as e:
@@ -245,11 +245,11 @@ class GitHubDownloader:
             return info
         
         # Fallback to GitHub release approach
-        release_tag = config.get('release_tag') or config.get('version')
-        zip_file_name = config.get('zip_file') or config.get('download_file')
+        release_tag = config.get('release_tag') or config.get('version') or config.get('current_version')
+        zip_file_name = config.get('zip_file') or config.get('download_file') or config.get('client_zip_filename')
         
         if not release_tag:
-            print("No release_tag or download_link specified in remote config")
+            print("No release_tag, version or current_version specified in remote config")
             return None
         
         # Get the specific release
