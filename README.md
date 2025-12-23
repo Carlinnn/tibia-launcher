@@ -44,7 +44,7 @@ A modern, easy-to-configure launcher for Tibia private servers built with **Pyth
 
 2. **Create releases** with your client files:
    - Go to your repository → Releases → Create a new release
-   - Upload your client as a ZIP file named `tibia-client.zip`
+   - Upload your client as a ZIP file named `GordonsOT.zip`
    - Tag it with a version like `v1.0.0`
 
 ### Step 2: Configure the Launcher
@@ -57,7 +57,7 @@ A modern, easy-to-configure launcher for Tibia private servers built with **Pyth
      "description": "Latest game client with new features!",
      "github_username": "YOUR_USERNAME",
      "github_repository": "YOUR_REPO_NAME",
-     "client_zip_filename": "tibia-client.zip",
+     "client_zip_filename": "GordonsOT.zip",
      
      "enable_auto_update": true,
      "launcher_github_username": "YOUR_USERNAME",
@@ -209,7 +209,7 @@ The launcher supports both simple and advanced configuration formats:
   "description": "Latest client with bug fixes",
   "github_username": "myusername",
   "github_repository": "tibia-client",
-  "client_zip_filename": "tibia-client.zip",
+  "client_zip_filename": "GordonsOT.zip",
   "enable_auto_update": true,
   "protected_folders": ["minimap", "conf", "characterdata"]
 }
@@ -223,7 +223,7 @@ The launcher supports both simple and advanced configuration formats:
   "description": "Major update with new features!",
   "github_username": "myorg", 
   "github_repository": "tibia-client",
-  "client_zip_filename": "tibia-client.zip",
+  "client_zip_filename": "GordonsOT.zip",
   
   "enable_auto_update": true,
   "launcher_github_username": "myorg",

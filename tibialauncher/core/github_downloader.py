@@ -12,11 +12,11 @@ from urllib.parse import urlparse
 
 class GitHubDownloader:
     def __init__(self):
-        self.repo_owner = "hecmo94"
-        self.repo_name = "testclient"
+        self.repo_owner = "carlinnn"
+        self.repo_name = "tibia-launcher"
         self.api_base_url = "https://api.github.com"
         self.raw_base_url = "https://raw.githubusercontent.com"
-        self.config_file_name = "sample_launcher_config"
+        self.config_file_name = "launcher_config.json"
         self.config_branch = "main"  # Default branch for config
         
         # Set up session with headers

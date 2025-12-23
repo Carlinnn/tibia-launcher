@@ -25,7 +25,7 @@ Thumbs.db
 *.log
 
 # Local config
-launcher_config.json
+
 
 # IDE settings (local only)
 .vscode/
